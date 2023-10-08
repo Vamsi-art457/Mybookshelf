@@ -50,7 +50,10 @@ const corsOptions = {
 
 app.use(bodyParser.json());
 app.use(cors(corsOptions));
-
+app.get("/",(req,res)=>{
+  res.setHeader("Access-Control-Allow-Credentials","true");
+  res.send("API is Running..");
+});
 function generateToken(user) {
   const payload = {
     id: user._id,
